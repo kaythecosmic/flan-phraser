@@ -1,4 +1,4 @@
-## Flan-Phraser Neural Networks Lab Project
+## Flan-Phraser
 > Kanishk Nagpal, CO21328
 
 Fine-tuning the Flan-T5 model for paraphrasing using a parameter-efficient method.
