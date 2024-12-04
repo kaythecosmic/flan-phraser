@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {% block body %} {%load static%}
+<div class="flex flex-col justify-center items-center w-full h-full">
+  <div class="flex justify-between w-[95%]">
+    <span
+      class="px-4 py-2 border border-emerald-600 rounded-lg hover:outline-emerald-600"
+    >
+      <a href="/home" class="font-bold text-lg">🏠 Home</a>
+    </span>
+    <span
+      class="px-4 py-2 border border-emerald-600 rounded-lg hover:outline-emerald-600"
+    >
+      <a
+        href="https://huggingface.co/cosmickay/flan-T5-base-paraphraser-en"
+        class="font-bold text-lg"
+        >🤗 Huggingface</a
+      >
+    </span>
+  </div>
+  <div class="flex justify-center w-full h-3/4">
+    <form
+      class="flex flex-col items-center gap-6 w-1/2 py-4"
+      action="/output"
+      method="POST"
+      onsubmit="event.preventDefault();"
+    >
+      {%csrf_token%}
+      <textarea
+        class="w-[90%] h-full p-4 border text-xl rounded-lg shadow border-gray-800 focus:outline-none resize-none text-justify"
+        name="InputText"
+        id="inputText"
+        placeholder="Input your text here"
+      ></textarea>
+      <button
+        id="paraphraseButton"
+        class="w-[90%] p-4 text-white bg-black rounded-lg hover:bg-transparent hover:text-black hover:outline transition-colors duration-200 text-xl text-center"
+        onclick="fetchResponse()"
+      >
+        Paraphrase
+      </button>
+    </form>
+    <div
+      class="flex flex-col gap-6 w-1/2 h-[98%] pt-4 items-center justify-center"
+    >
+      <textarea
+        class="w-[90%] h-full border text-xl text-justify py-4 bg-background rounded-lg border-gray-800 resize-none"
+        id="outputText"
+        name="OutputText"
+        placeholder="Paraphrased text will appear here"
+        readonly
+      ></textarea>
+    </div>
+  </div>
+</div>
+{% endblock %}  

@@ -1,0 +1,68 @@
+{% extends 'base.html' %} {% block body %} {%load static%}
+<main class="w-[70%]">
+  <div class="w-full mb-8 flex justify-between items-end">
+    <div class="info">
+      <h1 class="font-bold text-4xl">
+        Neural Networks Lab Project -
+        <span class="text-emerald-600">Flan-Phraser w/T5</span>
+      </h1>
+      <h1 class="font-normal text-lg text-emerald-700">
+        One stop for clean and lossless paraphrases
+      </h1>
+    </div>
+
+    <a
+      class="font-medium text-xl my-2 text-emerald-600 py-2 px-4 border-2 border-emerald-600 hover:border-emerald-900 transition-all duration-300 hover:rounded-md"
+      href="https://huggingface.co/cosmickay/flan-T5-base-paraphraser-en"
+      target="_blank"
+    >
+      Huggingface🤗
+    </a>
+  </div>
+
+  <div class="text-xl font-normal flex flex-col items-center">
+    <p class="text-justify w-full leading-8">
+      A project that fine-tunes a
+      <a
+        class="text-emerald-600 hover:text-emerald-900"
+        href="https://huggingface.co/google/flan-t5-base"
+        target="_blank"
+        >google/flan-t5-base</a
+      >
+
+      model using its robust capabilities for sequence-to-sequence tasks
+      focusing on the task of paraphrasing. The process began with the selection
+      of a good quality paraphrasing dataset
+      <a
+        class="text-emerald-600 hover:text-emerald-900"
+        href="https://huggingface.co/datasets/sharad/chatgpt-paraphrases-simple"
+        target="_blank"
+        >sharad/chatgpt-paraphrases-simple</a
+      >, which consisted of pairs of input sentences and 3-4 versions of their
+      corresponding paraphrased versions. I applied LoRA, a parameter-efficient
+      fine-tuning technique to adapt the pre-trained Flan-T5 base model for the
+      specific task without needing to retrain the entire network. Training was
+      conducted on a Kaggles Platform with T4x2 GPU. The fine-tuning process
+      involved optimizing hyperparameters like learning rate, dropuout and batch
+      size, monitoring loss and validation loss to avoid overfitting. After
+      training, the model was integrated with this frontend using a Django
+      frontend.
+    </p>
+
+    <p class="text-justify w-full leading-8 mt-2"></p>
+    <span class="mt-4">
+      <a
+        href="/"
+        class="font-medium text-xl my-2 text-emerald-600 py-2 px-4 border-2 border-emerald-600 hover:border-emerald-900 transition-all duration-300 hover:rounded-md"
+      >
+        Get Started ►
+      </a>
+    </span>
+  </div>
+  <div class="flex flex-col justify-center items-end mt-6 text-emerald-800">
+    <span class="text-lg font-light">Submitted By</span>
+    <span class="text-xl font-bold">Kanishk Nagpal</span>
+    <span class="text-lg">CO21328 - CSE, 7<sup>th</sup> Semester </span>
+  </div>
+</main>
+{% endblock %}
